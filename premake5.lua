@@ -1,7 +1,4 @@
 
-
-
-
 include "SVEngine/vendor/GLFW"
 project "ImGui"
     kind "StaticLib"
@@ -11,8 +8,6 @@ project "ImGui"
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 
-    IncludeGLFWDir = {}
-    IncludeGLFWDir["GLFW"] = "SVEngine/vendor/GLFW/include"
 	files
 	{
         "imconfig.h",
@@ -25,18 +20,9 @@ project "ImGui"
         "imgui_tables.cpp",
         "imstb_textedit.h",
         "imstb_truetype.h",
-        "imgui_demo.cpp",
-        "backends/imgui_impl_opengl3.cpp",
-        "backends/imgui_impl_opengl3.h",
-        "backends/imgui_impl_glfw.cpp",
-        "backends/imgui_impl_glfw.h"
+        "imgui_demo.cpp"
     }
-    includedirs {
-		"%{IncludeGLFWDir.GLFW}"
-	}
-    links{
-        "GLFW"
-    }
+ 
     
 	filter "system:windows"
         systemversion "latest"
